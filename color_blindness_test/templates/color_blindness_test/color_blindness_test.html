@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Color Blindness Test {% endblock %}
+
+{%block styling%}
+<style>
+    .navbar-brand {
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: #FFFFFF;
+    }
+</style>
+{%endblock%}
+
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">EyeCare</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-outline-danger" href="{% url 'dashboard' %}">Abort Test</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-light shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Color Blindness Test</h2>
+                    
+                    <!-- Display Image and Form -->
+                    <form method="post" class="text-center" id="colorBlindnessForm">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <!-- Set a fixed width and height, with object-fit to maintain aspect ratio -->
+                            <img src="{% static image %}" alt="Test Image" class="img-fluid rounded shadow-sm" 
+                                 style="width: 250px; height: 250px; object-fit: contain;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="answer" class="form-label fw-bold">What number or letter do you see?</label>
+                            <input type="text" class="form-control" id="answer" name="answer" required style="width: 200px; margin: auto;">
+                        </div>
+                        <input type="hidden" name="step" value="{{ step }}">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                    <!-- Display error if the answer was wrong -->
+                    {% if error %}
+                        <p class="text-danger mt-3">{{ error }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Automatically focus on the answer input when the page loads
+    window.onload = function() {
+        document.getElementById('answer').focus();
+    };
+</script>
+{% endblock %}

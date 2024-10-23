@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Eye Sight Test Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Eye Sight Test Results</h2>
+
+    <div class="row text-center">
+        <div class="col-6">
+            <div class="alert alert-info">
+                <strong>Your Score:</strong> {{ score }} / 6
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="alert alert-info">
+                <strong>Estimated Visual Acuity:</strong> {{ visual_acuity }}
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <p>Please note that this is a simple online test and should not replace a professional eye examination.</p>
+        <a href="{% url 'eye_sight_test' %}" class="btn btn-primary btn-lg">Retake Test</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-lg">Go to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

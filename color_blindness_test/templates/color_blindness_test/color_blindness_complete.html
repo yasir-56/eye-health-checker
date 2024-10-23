@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Color Blindness Test Complete{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h2 class="mb-4">Test Complete</h2>
+        <div class="alert alert-info" role="alert">
+            {{ message }}
+        </div>
+        <a href="{% url 'color_blindness_test' %}" class="btn btn-primary btn-lg mt-3">Retake Test</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-lg mt-3">Go to Dashboard</a>
+    </div>
+{% endblock %}

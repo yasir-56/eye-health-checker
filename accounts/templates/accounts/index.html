@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Eye Health Check{% endblock %}
+
+{% block styling %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 bg-light p-4 rounded-3 shadow-lg">
+    <!-- Header -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center">
+            <div class="fs-4 fw-semibold me-4">EyeCare</div>
+        </div>
+        <div class="d-flex gap-3">
+            <a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary">Login</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bold mb-3">Take Control of Your Eye Health</h1>
+            <p class="text-secondary mb-4">EyeCare provides a quick and easy way to monitor your eye health. Regular checkups can prevent eye problems before they become serious. Start your eye health journey today!</p>
+            <div class="d-flex gap-3">
+                <a href="{% url 'login' %}" class="btn btn-primary">Start Eye Test</a>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'accounts/images/control_eye_health.jpg' %}" class="img-fluid rounded shadow" alt="EyeCare feature image">
+        </div>
+    </main>
+
+    <!-- Benefits Section -->
+    <section class="bg-white p-4 rounded mb-5 shadow-sm">
+        <h2 class="fs-4 fw-bold mb-3">Why Regular Eye Checkups Matter</h2>
+        <p class="text-secondary mb-4">Your vision is one of the most important senses. Regular eye checkups can help detect vision problems, eye diseases, and other conditions early on.</p>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h3 class="fs-5 fw-semibold mb-2">Early Detection</h3>
+                <p class="text-secondary">EyeCare helps identify potential eye issues before they worsen, ensuring you take action promptly.</p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <img src="{% static 'accounts/images/early_detection.jpg' %}" class="img-fluid rounded shadow" alt="Placeholder image for benefits of EyeCare system">
+        </div>
+    </section>
+
+    <!-- Enhanced Insights Section -->
+    <section class="row mb-5 align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="{% static 'accounts/images/monitor_vision.jpg' %}" class="img-fluid rounded shadow" alt="Eye health insights and analytics">
+        </div>
+        <div class="col-md-6">
+            <h3 class="fs-5 fw-semibold mb-3">Monitor Your Vision</h3>
+            <p class="text-secondary">Regularly check your vision and monitor any changes to ensure your eyes are healthy and functioning well.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center border-top pt-4">
+        <p class="text-secondary">&copy; 2024 EyeCare. All rights reserved.</p>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+{% endblock %}
